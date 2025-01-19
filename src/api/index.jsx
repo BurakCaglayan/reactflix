@@ -6,10 +6,10 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 export const getMoviesRequest = createAsyncThunk(
   "data/getMoviesRequest",
   async ({ params }) => {
-    const { page, query } = params;
+    const { page, query, type } = params;
 
     const response = await axios.get(
-      `${BASE_URL}?apikey=${API_KEY}&s=${query}&page=${page}`
+      `${BASE_URL}?apikey=${API_KEY}&s=${query}&page=${page}&type=${type}`
     );
     return response.data;
   }

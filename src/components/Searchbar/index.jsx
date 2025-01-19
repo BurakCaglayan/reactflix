@@ -1,21 +1,29 @@
 import { useState, useCallback } from "react";
-import { Input, Segment } from "semantic-ui-react";
-import { useDispatch, useSelector } from "react-redux";
-import { setQuery } from "@/redux/moviesSlice";
-import { getMoviesRequest } from "@/api";
-import { setCurrentPage } from "@/redux/moviesSlice";
 import debounce from "lodash.debounce";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  Grid,
+  GridColumn,
+  GridRow,
+  Input,
+  Segment,
+  Dropdown,
+} from "semantic-ui-react";
+import { getMoviesRequest } from "@/api";
+import { setCurrentPage, setQuery, setType } from "@/redux/moviesSlice";
+import { optionTypes } from "@/utils/constants";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
-  const { loading, query } = useSelector((state) => state.movies);
+  const { loading, query, type } = useSelector((state) => state.movies);
   const [inputValue, setInputValue] = useState(query);
+  const [selectedType, setSelectedType] = useState(type);
 
   const debouncedFetchResults = useCallback(
-    debounce((query) => {
+    debounce(({ query, type }) => {
       if (query.length >= 3) {
         dispatch(setCurrentPage(1));
-        const params = { page: 1, query };
+        const params = { page: 1, query, type };
         dispatch(getMoviesRequest({ params }));
       }
     }, 500),
@@ -28,18 +36,40 @@ const SearchBar = () => {
     if (value.length >= 3) {
       dispatch(setQuery(value));
     }
-    debouncedFetchResults(value);
+    debouncedFetchResults({ query: value, type: selectedType });
+  };
+
+  const handleTypeChange = (e, { value }) => {
+    setSelectedType(value);
+    dispatch(setType(value));
+    debouncedFetchResults({ query: inputValue, type: value });
   };
 
   return (
     <Segment>
-      <Input
-        loading={loading}
-        value={inputValue}
-        onChange={handleChange}
-        placeholder="Search..."
-        fluid
-      />
+      <Grid>
+        <GridRow>
+          <GridColumn computer={4}>
+            <Dropdown
+              placeholder="Select Type"
+              fluid
+              selection
+              options={optionTypes}
+              onChange={handleTypeChange}
+            />
+          </GridColumn>
+
+          <GridColumn computer={8}>
+            <Input
+              loading={loading}
+              value={inputValue}
+              onChange={handleChange}
+              placeholder="Search..."
+              fluid
+            />
+          </GridColumn>
+        </GridRow>
+      </Grid>
     </Segment>
   );
 };
