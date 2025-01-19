@@ -1,10 +1,13 @@
 import Header from "@/components/Header";
+import Searchbar from "@/components/Searchbar";
+import MovieList from "@/components/MovieList";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <h1>Reactflix, Series / Movies Finder</h1>
+      <Searchbar />
+      <MovieList />
     </>
   );
 };
