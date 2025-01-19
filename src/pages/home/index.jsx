@@ -1,4 +1,4 @@
-import reactflixLogo from "../../../public/reactflix-logo.svg";
+import reactflixLogo from "@/assets/reactflix-logo.svg";
 
 const Home = () => {
   return (
