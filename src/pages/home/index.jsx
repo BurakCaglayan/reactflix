@@ -1,3 +1,5 @@
+import reactflixLogo from "../../../public/reactflix-logo.svg";
+
 const Home = () => {
   return (
     <>

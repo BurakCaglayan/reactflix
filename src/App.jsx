@@ -1,4 +1,3 @@
-import reactflixLogo from "/reactflix-logo.svg";
 import Home from "@/pages/home";
 import "./App.css";
 
