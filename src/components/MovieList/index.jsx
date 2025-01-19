@@ -5,6 +5,7 @@ import {
   Image,
   Pagination,
 } from "semantic-ui-react";
+import Card from "@/components/UI/Card";
 
 const MovieList = () => {
   return (
@@ -12,39 +13,19 @@ const MovieList = () => {
       <Container>
         <Grid>
           <GridColumn mobile={8} tablet={8} computer={4}>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              fluid
-              rounded
-            />
+            <Card />
           </GridColumn>
           <GridColumn mobile={8} tablet={8} computer={4}>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              fluid
-              rounded
-            />
+            <Card />
           </GridColumn>
           <GridColumn mobile={8} tablet={8} computer={4}>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              fluid
-              rounded
-            />
+            <Card />
           </GridColumn>
           <GridColumn mobile={8} tablet={8} computer={4}>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              fluid
-              rounded
-            />
+            <Card />
           </GridColumn>
           <GridColumn mobile={8} tablet={8} computer={4}>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              fluid
-              rounded
-            />
+            <Card />
           </GridColumn>
         </Grid>
         <Pagination

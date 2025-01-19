@@ -1,0 +1,25 @@
+.card {
+  position: relative;
+  color: rgb(255 255 255 / 0.7);
+  &__content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(48, 48, 48));
+    padding: 0.75rem 0.75rem;
+  }
+  &__between {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__year {
+    font-size: 1rem;
+  }
+  &__rating {
+    color: rgb(234 179 8);
+    font-size: 1rem;
+  }
+  &__title {
+    font-size: 1.25rem;
+  }
+}
