@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/Header";
 import Detail from "@/components/Detail";
 import { getMovieByIdRequest } from "@/api";
+import Loading from "@/components/Loading";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const DetailPage = () => {
     <>
       <Header />
       {loading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : (
         <>
           <Detail id={id} data={data} />

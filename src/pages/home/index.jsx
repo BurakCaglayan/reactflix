@@ -4,6 +4,7 @@ import Searchbar from "@/components/Searchbar";
 import MovieList from "@/components/MovieList";
 import { useDispatch, useSelector } from "react-redux";
 import { getMoviesRequest } from "@/api";
+import Loading from "@/components/Loading";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Home = () => {
     <>
       <Header />
       {loading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : (
         <>
           <Searchbar />
