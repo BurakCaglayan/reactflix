@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getMovieByIdRequest } from "@/api";
 
-const moviesSlice = createSlice({
+const movieDetailsSlice = createSlice({
   name: "movieDetails",
   initialState: {
     data: [],
@@ -26,4 +26,4 @@ const moviesSlice = createSlice({
   },
 });
 
-export default moviesSlice.reducer;
+export default movieDetailsSlice.reducer;
