@@ -8,10 +8,12 @@ import Loading from "@/components/Loading";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { loading, error, currentPage } = useSelector((state) => state.movies);
+  const { loading, error, currentPage, query } = useSelector(
+    (state) => state.movies
+  );
 
   useEffect(() => {
-    const params = { page: currentPage };
+    const params = { page: currentPage, query };
     dispatch(getMoviesRequest({ params }));
   }, [dispatch, currentPage]);
 
@@ -19,14 +21,8 @@ const Home = () => {
   return (
     <>
       <Header />
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <Searchbar />
-          <MovieList />
-        </>
-      )}
+      <Searchbar />
+      {loading ? <Loading /> : <MovieList />}
     </>
   );
 };
