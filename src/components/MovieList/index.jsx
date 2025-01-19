@@ -1,7 +1,7 @@
 import { Container, GridColumn, Grid, Pagination } from "semantic-ui-react";
 import Card from "@/components/UI/Card";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentPage } from "@/redux/dataSlice";
+import { setCurrentPage } from "@/redux/moviesSlice";
 
 const MovieList = () => {
   const dispatch = useDispatch();
