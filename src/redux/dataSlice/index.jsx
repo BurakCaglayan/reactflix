@@ -5,6 +5,7 @@ const moviesSlice = createSlice({
   name: "movies",
   initialState: {
     data: [],
+    movies: [],
     currentPage: 1,
     loading: false,
     error: null,

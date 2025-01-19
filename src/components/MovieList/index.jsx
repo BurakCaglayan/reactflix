@@ -6,6 +6,7 @@ import { setCurrentPage } from "@/redux/dataSlice";
 const MovieList = () => {
   const dispatch = useDispatch();
   const { data, currentPage } = useSelector((state) => state.movies);
+  const moviesList = data.Search;
 
   const handlePageChange = (e, { activePage }) => {
     dispatch(setCurrentPage(activePage));
@@ -15,21 +16,11 @@ const MovieList = () => {
     <>
       <Container>
         <Grid>
-          <GridColumn mobile={8} tablet={8} computer={4}>
-            <Card />
-          </GridColumn>
-          <GridColumn mobile={8} tablet={8} computer={4}>
-            <Card />
-          </GridColumn>
-          <GridColumn mobile={8} tablet={8} computer={4}>
-            <Card />
-          </GridColumn>
-          <GridColumn mobile={8} tablet={8} computer={4}>
-            <Card />
-          </GridColumn>
-          <GridColumn mobile={8} tablet={8} computer={4}>
-            <Card />
-          </GridColumn>
+          {moviesList?.map((movie) => (
+            <GridColumn key={movie.imdbID} mobile={8} tablet={8} computer={4}>
+              <Card data={movie} />
+            </GridColumn>
+          ))}
         </Grid>
         <Pagination
           defaultActivePage={currentPage}
