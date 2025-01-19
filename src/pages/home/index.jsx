@@ -8,12 +8,12 @@ import Loading from "@/components/Loading";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { loading, error, currentPage, query, type } = useSelector(
+  const { loading, error, currentPage, query, type, year } = useSelector(
     (state) => state.movies
   );
 
   useEffect(() => {
-    const params = { page: currentPage, query, type };
+    const params = { page: currentPage, query, type, year };
     dispatch(getMoviesRequest({ params }));
   }, [dispatch, currentPage]);
 

@@ -7,6 +7,7 @@ const moviesSlice = createSlice({
     data: [],
     query: "Pokemon",
     type: "movie",
+    year: null,
     currentPage: 1,
     loading: false,
     error: null,
@@ -20,6 +21,9 @@ const moviesSlice = createSlice({
     },
     setType: (state, action) => {
       state.type = action.payload;
+    },
+    setYear: (state, action) => {
+      state.year = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -39,6 +43,7 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { setCurrentPage, setQuery, setType } = moviesSlice.actions;
+export const { setCurrentPage, setQuery, setType, setYear } =
+  moviesSlice.actions;
 
 export default moviesSlice.reducer;
