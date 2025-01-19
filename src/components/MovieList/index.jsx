@@ -1,6 +1,7 @@
 import { Container, GridColumn, Grid, Pagination } from "semantic-ui-react";
-import Card from "@/components/UI/Card";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router";
+import Card from "@/components/UI/Card";
 import { setCurrentPage } from "@/redux/moviesSlice";
 
 const MovieList = () => {
@@ -18,7 +19,9 @@ const MovieList = () => {
         <Grid>
           {moviesList?.map((movie) => (
             <GridColumn key={movie.imdbID} mobile={8} tablet={4} computer={4}>
-              <Card data={movie} />
+              <Link to={`/detail/${movie.imdbID}`}>
+                <Card data={movie} />
+              </Link>
             </GridColumn>
           ))}
         </Grid>

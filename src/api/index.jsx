@@ -20,7 +20,7 @@ export const getMovieByIdRequest = createAsyncThunk(
   async ({ params }) => {
     const { id } = params;
 
-    const response = await axios.get(`${BASE_URL}?apikey=${API_KEY}&ID=${id}`);
+    const response = await axios.get(`${BASE_URL}?apikey=${API_KEY}&i=${id}`);
     return response.data;
   }
 );
