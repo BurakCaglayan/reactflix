@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import getMovieByIdRequest from "@/api";
+import { getMovieByIdRequest } from "@/api";
 
 const moviesSlice = createSlice({
-  name: "movies",
+  name: "movieDetails",
   initialState: {
     data: [],
     loading: false,

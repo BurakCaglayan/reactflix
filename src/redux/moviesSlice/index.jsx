@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import getMoviesRequest from "@/api";
+import { getMoviesRequest } from "@/api";
 
 const moviesSlice = createSlice({
   name: "movies",
