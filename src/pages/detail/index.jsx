@@ -8,7 +8,7 @@ import { getMovieByIdRequest } from "@/api";
 const DetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.movieDetails);
+  const { data, loading } = useSelector((state) => state.movieDetails);
 
   useEffect(() => {
     const params = { id };
@@ -18,7 +18,13 @@ const DetailPage = () => {
   return (
     <>
       <Header />
-      <Detail id={id} data={data} />
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <Detail id={id} data={data} />
+        </>
+      )}
     </>
   );
 };
