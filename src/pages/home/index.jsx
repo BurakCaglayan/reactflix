@@ -7,11 +7,12 @@ import { getMoviesRequest } from "@/api";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.movies);
+  const { loading, error, currentPage } = useSelector((state) => state.movies);
 
   useEffect(() => {
-    dispatch(getMoviesRequest());
-  }, [dispatch]);
+    const params = { page: currentPage };
+    dispatch(getMoviesRequest({ params }));
+  }, [dispatch, currentPage]);
 
   if (error) return <div>Error: {error}</div>;
   return (

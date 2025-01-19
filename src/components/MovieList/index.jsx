@@ -1,13 +1,16 @@
-import {
-  Container,
-  GridColumn,
-  Grid,
-  Image,
-  Pagination,
-} from "semantic-ui-react";
+import { Container, GridColumn, Grid, Pagination } from "semantic-ui-react";
 import Card from "@/components/UI/Card";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentPage } from "@/redux/dataSlice";
 
 const MovieList = () => {
+  const dispatch = useDispatch();
+  const { data, currentPage } = useSelector((state) => state.movies);
+
+  const handlePageChange = (e, { activePage }) => {
+    dispatch(setCurrentPage(activePage));
+  };
+
   return (
     <>
       <Container>
@@ -29,12 +32,13 @@ const MovieList = () => {
           </GridColumn>
         </Grid>
         <Pagination
-          defaultActivePage={1}
+          defaultActivePage={currentPage}
           firstItem={null}
           lastItem={null}
+          onPageChange={handlePageChange}
           pointing
           secondary
-          totalPages={3}
+          totalPages={Math.floor(data.totalResults / 10)}
         />
       </Container>
     </>

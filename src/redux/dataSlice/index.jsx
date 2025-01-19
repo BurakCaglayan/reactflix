@@ -5,10 +5,15 @@ const moviesSlice = createSlice({
   name: "movies",
   initialState: {
     data: [],
+    currentPage: 1,
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getMoviesRequest.pending, (state) => {
@@ -25,5 +30,7 @@ const moviesSlice = createSlice({
       });
   },
 });
+
+export const { setCurrentPage } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

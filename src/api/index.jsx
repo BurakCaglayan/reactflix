@@ -5,8 +5,12 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const getMoviesRequest = createAsyncThunk(
   "data/getMoviesRequest",
-  async () => {
-    const response = await axios.get(`${BASE_URL}?apikey=${API_KEY}&s=pokemon`);
+  async ({ params }) => {
+    const { page } = params;
+
+    const response = await axios.get(
+      `${BASE_URL}?apikey=${API_KEY}&s=pokemon&page=${page}`
+    );
     return response.data;
   }
 );
