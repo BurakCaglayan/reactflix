@@ -17,7 +17,7 @@ const MovieList = () => {
       <Container>
         <Grid>
           {moviesList?.map((movie) => (
-            <GridColumn key={movie.imdbID} mobile={8} tablet={8} computer={4}>
+            <GridColumn key={movie.imdbID} mobile={8} tablet={4} computer={4}>
               <Card data={movie} />
             </GridColumn>
           ))}
