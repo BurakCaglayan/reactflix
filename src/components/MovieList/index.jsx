@@ -11,20 +11,40 @@ const MovieList = () => {
     <>
       <Container>
         <Grid>
-          <GridColumn mobile={16} tablet={8} computer={4}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
+          <GridColumn mobile={8} tablet={8} computer={4}>
+            <Image
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+              fluid
+              rounded
+            />
           </GridColumn>
-          <GridColumn mobile={16} tablet={8} computer={4}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
+          <GridColumn mobile={8} tablet={8} computer={4}>
+            <Image
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+              fluid
+              rounded
+            />
           </GridColumn>
-          <GridColumn mobile={16} tablet={8} computer={4}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
+          <GridColumn mobile={8} tablet={8} computer={4}>
+            <Image
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+              fluid
+              rounded
+            />
           </GridColumn>
-          <GridColumn mobile={16} tablet={8} computer={4}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
+          <GridColumn mobile={8} tablet={8} computer={4}>
+            <Image
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+              fluid
+              rounded
+            />
           </GridColumn>
-          <GridColumn mobile={16} tablet={8} computer={4}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
+          <GridColumn mobile={8} tablet={8} computer={4}>
+            <Image
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+              fluid
+              rounded
+            />
           </GridColumn>
         </Grid>
         <Pagination
