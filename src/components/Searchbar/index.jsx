@@ -80,6 +80,7 @@ const SearchBar = () => {
               fluid
               selection
               options={optionTypes}
+              value={selectedType}
               onChange={handleTypeChange}
             />
           </GridColumn>
@@ -99,6 +100,7 @@ const SearchBar = () => {
               placeholder="Year"
               fluid
               selection
+              value={selectedYear}
               options={getYears(50)}
               onChange={handleYearChange}
             />
