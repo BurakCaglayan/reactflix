@@ -8,6 +8,7 @@ import {
   Input,
   Segment,
   Dropdown,
+  Button,
 } from "semantic-ui-react";
 import { getMoviesRequest } from "@/api";
 import {
@@ -27,13 +28,13 @@ const SearchBar = () => {
   const [selectedYear, setSelectedYear] = useState(year);
 
   const debouncedFetchResults = useCallback(
-    debounce(({ query, type, year }) => {
-      if (query.length >= 3) {
+    debounce(({ query, type, year, isForce }) => {
+      if (query.length >= 3 || isForce) {
         dispatch(setCurrentPage(1));
         const params = { page: 1, query, type, year };
         dispatch(getMoviesRequest({ params }));
       }
-    }, 1000),
+    }, 700),
     []
   );
 
@@ -70,6 +71,23 @@ const SearchBar = () => {
     });
   };
 
+  const onClearClick = () => {
+    const query = "Pokemon";
+    const type = "movie";
+    dispatch(setQuery(query));
+    dispatch(setType(type));
+    dispatch(setYear(null));
+    setInputValue(query);
+    setSelectedType(type);
+    setSelectedYear(null);
+    debouncedFetchResults({
+      query,
+      type,
+      year: null,
+      isForce: true,
+    });
+  };
+
   return (
     <Segment>
       <Grid>
@@ -85,7 +103,7 @@ const SearchBar = () => {
             />
           </GridColumn>
 
-          <GridColumn mobile={16} tablet={10} computer={10}>
+          <GridColumn mobile={16} tablet={8} computer={8}>
             <Input
               loading={loading}
               value={inputValue}
@@ -104,6 +122,12 @@ const SearchBar = () => {
               options={getYears(50)}
               onChange={handleYearChange}
             />
+          </GridColumn>
+
+          <GridColumn mobile={16} tablet={2} computer={2}>
+            <Button onClick={onClearClick} color="red">
+              Clear
+            </Button>
           </GridColumn>
         </GridRow>
       </Grid>
