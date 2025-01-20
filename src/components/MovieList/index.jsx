@@ -1,4 +1,10 @@
-import { Container, GridColumn, Grid, Pagination } from "semantic-ui-react";
+import {
+  Container,
+  GridColumn,
+  Grid,
+  Pagination,
+  Segment,
+} from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
 import Card from "@/components/UI/Card";
@@ -14,7 +20,7 @@ const MovieList = () => {
   };
 
   return (
-    <>
+    <Segment>
       <Container>
         <Grid>
           {moviesList?.map((movie) => (
@@ -35,7 +41,7 @@ const MovieList = () => {
           totalPages={Math.floor(data.totalResults / 10)}
         />
       </Container>
-    </>
+    </Segment>
   );
 };
 
