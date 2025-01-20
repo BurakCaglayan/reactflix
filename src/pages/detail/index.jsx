@@ -19,13 +19,7 @@ const DetailPage = () => {
   return (
     <>
       <Header />
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <Detail id={id} data={data} />
-        </>
-      )}
+      {loading ? <Loading /> : <Detail id={id} data={data} />}
     </>
   );
 };
