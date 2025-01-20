@@ -46,7 +46,7 @@ This project is currently using OMDb API. But firstly, you can continue with the
    ```
 3. Generate API_KEY
 
-   Go to www.example.com and generate an API key.
+   Go to [OMDb API](https://www.omdbapi.com/) and generate an API key.
 
 4. Create a .env file in the root directory of your project, and save it with the following content: VITE_API_KEY=[your_API_KEY]
 
